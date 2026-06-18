@@ -1,0 +1,69 @@
+largest element in array 
+
+public class programs{
+    public static void main(String[] args) {
+        int[] arr={1,8,10,12,14};
+        int max=0;
+        for (int i = 0; i < arr.length; i++) {
+            if(arr[i]>max) max=arr[i];
+
+        }
+        System.out.println(max);
+    }
+}
+
+ second largest 
+
+
+    public static void main(String[] args) {
+        int arr[]={1,8,10,12,14};
+        int second_max=Integer.MIN_VALUE;
+        int max=Integer.MIN_VALUE;
+        for (int i = 0; i < arr.length; i++) {
+            if(arr[i]>max) {
+                second_max=max;
+                max=arr[i];
+            }
+            else if(arr[i]<max &&arr[i]>second_max)
+                second_max=arr[i];
+
+
+        }
+        System.out.println(second_max);
+    }
+}
+
+
+
+## check is array rotated
+    public boolean check(int[] nums) {
+        int count = 0;
+        int n = nums.length;
+
+        for (int i = 0; i < n; i++) {
+            if (nums[i] > nums[(i + 1) % n]) {   // find peak if i is more thanm i+1
+                count++;
+            }
+        }
+
+        return count <= 1;                      // there should be only one peak
+    }
+
+
+Majority element 
+
+
+    public int majorityElement(int[] nums) {
+       Map<Integer,Integer> map=new  HashMap<>();
+       for(int i=0;i<nums.length;i++){
+        map.put(nums[i], map.getOrDefault(nums[i], 0) + 1);
+       }
+        for(Integer v:map.keySet()){
+            if(map.get(v)>(nums.length/2)){
+                return v;
+            }
+        
+
+       }
+       return -1;
+    }
